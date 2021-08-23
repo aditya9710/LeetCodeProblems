@@ -1,19 +1,12 @@
-#include <string> 
 class Solution {
 public:
-    string largestOddNumber(string num) {
-        int i = stoi(num), n = 0;
-        if (i < 0) return "";
-        if (i%2 != 0) return num;
-        while(i>0){
-            cout<<i%10<<' ';
-            if ((i%10)%2 != 0 && (i%10) > n) {
-                
-                n = i%10;
+    string largestOddNumber(string num) {     
+        for (int i = num.length() - 1; i >= 0; i--) {
+            if(num[i] == '1' || num[i] == '3' || num[i] == '5' 
+               || num[i] == '7' || num[i] == '9') {
+                return num.substr(0, i+1);
             }
-            i = i/10;
         }
-        if (n == 0) return "";
-        return to_string(n);
+        return "";
     }
 };
