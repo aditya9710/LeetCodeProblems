@@ -6,16 +6,17 @@ private:
 public:
     
     NumArray(vector<int>& nums) {
-        for(int i : nums) {
-            arr.push_back(i);
+        arr.push_back(nums[0]);
+        for(int i = 1; i < nums.size(); i++) {
+            arr.push_back(arr[i - 1] + nums[i]);
         }
+        // for (int i : arr) {
+        //     cout << i<< " ";
+        // }
     }
     
     int sumRange(int left, int right) {
-        int sum = 0;
-        for(int i = left; i <= right && i >= 0; i++) {
-            sum += arr[i];
-        }
-        return sum;
+        if (left == 0) return arr[right];
+        return arr[right] - arr[left - 1];
     }
 };
