@@ -6,7 +6,6 @@ public:
         
         int l = 0, r = 0, cnt = 0, ans = 0;
         while (r < s.length()) {
-        
             if (mp[s[r]] == 0)
             {
                 cnt = r - l + 1;
@@ -18,7 +17,6 @@ public:
                 mp[s[l]]--;
                 l++;
             }
-            
         }
         return ans;
     }
